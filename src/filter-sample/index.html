@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>フィルターサンプル</title>
+<link rel="stylesheet" href="style.css" />
+<script src="script.js"></script>
+
+<div id="content-pane">
+  <label for="filter-select">フィルター</label>
+  <select id="filter-select" onchange="changed()">
+    <option value="all" selected>all</option>
+    <option value="tag1">tag1</option>
+    <option value="tag2">tag2</option>
+    <option value="tag3">tag3</option>
+  </select>
+
+  <div id="card-pane">
+    <div class="card tag1">tag1</div>
+    <div class="card tag2">tag2</div>
+    <div class="card tag3">tag3</div>
+  </div>
+</div>

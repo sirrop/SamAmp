@@ -1,0 +1,35 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+#filter-select {
+  border-radius: 15px;
+  border-color: gray;
+  background-color: white;
+  width: 50px;
+}
+
+#filter-select:hover {
+  border-color: deepskyblue;
+}
+
+#content-pane {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  border-width: 1px;
+  border-style: solid;
+  border-color: forestgreen;
+  border-radius: 5px;
+  width: max-content;
+  padding: 3px 10px;
+  margin: 5px 0px;
+}
+
+.none {
+  display: none;
+}
