@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="generator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/generator_jar</output-path>
+    <root id="archive" name="generator.jar">
+      <element id="module-output" name="generator" />
+    </root>
+  </artifact>
+</component>

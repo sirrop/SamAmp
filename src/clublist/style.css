@@ -1,10 +1,12 @@
 #club-list-wrapper {
-
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(274px, 1fr));
 }
 
 .club-card-container {
   width: max-content;
   height: max-content;
+  margin: 5px;
 }
 
 .club-card {
