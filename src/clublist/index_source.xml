@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+  カードのもととなるデータです。
+
+  htmlファイルはこのファイルからジェネレータを利用して生成されます。
+  したがって、index.htmlは直接触らないようにしてください。
+
+  実験を行う必要がある場合は、test.htmlを利用してください。
+
+  以下は各要素と属性の説明です。
+
+  clubタグ:
+    clubタグはそれぞれの部活動の親要素となります。属性としてname, twitter, instagramを
+    持つことができ、nameは部活動の名前を、twitterおよびinstagramは該当するSNSのリンクを指定します。
+    SNSをやっていない場合には、そのSNSを省略します。
+    また、子要素として、nameとtagを持ちます。
+
+
+  nameタグ:
+    部活動名を表すclub要素の子要素として存在します。
+    属性とタグの両方で部活動名が指定された場合、こちらが優先されます。
+    また、このタグが複数指定された場合には、最後のタグが使用されます。
+    このタグは、style属性を指定することができ、特別にスタイリングする必要がある場合にしようします。
+
+  tagタグ:
+    部活動のタグを表す要素です。この要素は複数設置可能です。
+    現在はタグを表示することだけに使用していますが、将来的に検索やフィルターなどと言った用途に使用される予定です。
+-->
+
 <club-card>
     <club name="ESS" twitter="https://twitter.com/uoehessclub">
         <tag>文化部</tag>
@@ -6,31 +35,38 @@
     <club name="ME部" twitter="https://twitter.com/uoeh_me">
       <tag>文化部</tag>
     </club>
-    <club name="アコースティックギター部" twitter="https://twitter.com/uoeh_acogi" instagram="https://www.instagram.com/uoeh__acousticguitarclub/?hl=ja">
+    <club twitter="https://twitter.com/uoeh_acogi" instagram="https://www.instagram.com/uoeh__acousticguitarclub/?hl=ja">
+      <name style="font-size: 17px">アコースティックギター部</name>
       <tag>文化部</tag>
     </club>
-    <club name="囲碁将棋部" twitter="https://twitter.com/ionsupllydrink">
+    <club twitter="https://twitter.com/ionsupllydrink">
+      <name style="font-size: 30px">囲碁将棋部</name>
       <tag>文化部</tag>
     </club>
-    <club name="裏千家茶道部" twitter="https://twitter.com/uoeh_sadou">
+    <club twitter="https://twitter.com/uoeh_sadou">
+      <name style="font-size: 25px">裏千家茶道部</name>
       <tag>文化部</tag>
     </club>
     <club name="演劇部" twitter="https://twitter.com/uoeh_ep" instagram="https://www.instagram.com/uoeh_ep/">
       <tag>文化部</tag>
     </club>
-    <club name="産業医科大学管弦楽団" twitter="https://twitter.com/sani_orchestra" instagram="https://www.instagram.com/sani_orchestra/?hl=ja">
+    <club twitter="https://twitter.com/sani_orchestra" instagram="https://www.instagram.com/sani_orchestra/?hl=ja">
+      <name style="font-size: 18px">産業医科大学管弦楽団</name>
       <tag>文化部</tag>
     </club>
     <club name="ギターマンドリン部" twitter="https://twitter.com/uoeh_guitaman" instagram="https://www.instagram.com/gitaman1uoeh/">
+      <name style="font-size: 18px">ギターマンドリン部</name>
       <tag>文化部</tag>
     </club>
-    <club name="救急医学研究部" twitter="https://twitter.com/99uoeh">
+    <club twitter="https://twitter.com/99uoeh">
+      <name style="font-size: 18px">救急医学研究部</name>
       <tag>文化部</tag>
     </club>
     <club name="軽音部" twitter="https://twitter.com/k_on_uoeh" instagram="https://www.instagram.com/keionuoeh/?hl=ja">
       <tag>文化部</tag>
     </club>
-    <club name="国際保健研究部">
+    <club>
+      <name style="font-size: 20px">国際保健研究部</name>
       <tag>文化部</tag>
     </club>
     <club name="写真部" instagram="https://www.instagram.com/photograph_party_uoeh/">
@@ -42,19 +78,23 @@
     <club name="天文部" twitter="https://twitter.com/uoeh_astro">
       <tag>文化部</tag>
     </club>
-    <club name="東洋医学研究部" twitter="https://twitter.com/uoeh_touiken">
+    <club twitter="https://twitter.com/uoeh_touiken">
+      <name style="font-size: 25px">東洋医学研究部</name>
       <tag>文化部</tag>
     </club>
     <club name="ピアノ会" twitter="https://twitter.com/uoehpiano">
       <tag>文化部</tag>
     </club>
-    <club name="美術文藝部" twitter="https://twitter.com/uoeh_creation">
+    <club twitter="https://twitter.com/uoeh_creation">
+      <name style="font-size: 30px">美術文藝部</name>
       <tag>文化部</tag>
     </club>
-    <club name="ボランティア研究部">
+    <club>
+      <name style="font-size: 18px">ボランティア研究部</name>
       <tag>文化部</tag>
     </club>
-    <club name="混声合唱メデュトピア・コール部">
+    <club>
+      <name style="font-size: 18px">混声合唱メデュトピア・コール部</name>
       <tag>文化部</tag>
     </club>
     <club name="フィッシング同好会部" instagram="https://www.instagram.com/uoeh_osakana/">

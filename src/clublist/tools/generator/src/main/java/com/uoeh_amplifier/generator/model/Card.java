@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Card {
-    private final String name;
+    private final Name name;
     private final Twitter twitter;
     private final Instagram instagram;
     private final List<String> tags = new ArrayList<>();
 
-    public Card(String name, Twitter twitter, Instagram instagram) {
+    public Card(Name name, Twitter twitter, Instagram instagram) {
         this.name = name;
         this.twitter = twitter;
         this.instagram = instagram;
@@ -19,7 +19,13 @@ public class Card {
         return tags;
     }
 
-    public String getName() {
+    public Card withName(Name name) {
+        var clone = new Card(name, twitter, instagram);
+        clone.tags.addAll(this.tags);
+        return clone;
+    }
+
+    public Name getName() {
         return name;
     }
 

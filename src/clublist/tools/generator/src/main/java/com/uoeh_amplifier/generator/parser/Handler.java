@@ -1,8 +1,6 @@
 package com.uoeh_amplifier.generator.parser;
 
-import com.uoeh_amplifier.generator.model.Card;
-import com.uoeh_amplifier.generator.model.Instagram;
-import com.uoeh_amplifier.generator.model.Twitter;
+import com.uoeh_amplifier.generator.model.*;
 import org.xml.sax.Attributes;
 import org.xml.sax.ext.Attributes2;
 import org.xml.sax.ext.DefaultHandler2;
@@ -29,7 +27,7 @@ public class Handler extends DefaultHandler2 {
             out.println(indent(1, "<div class=\"club-card-container\">"));
             out.println(indent(2, "<div class=\"club-card\">"));
             out.println(indent(3, "<div class=\"club-header\">"));
-            out.println(indent(4, "<span class=\"club-name\">" + card.getName() + "</span>"));
+            out.println(indent(4, "<span class=\"club-name\"" + Styles.getStyle(card.getName(), 1) + ">" + card.getName() + "</span>"));
             out.println(indent(4, "<img src=\"background.svg\" width=\"50px\" height=\"50px\" />"));
             out.println(indent(3, "</div>"));
             out.println(indent(3, "<div class=\"club-card-footer\">"));
@@ -66,14 +64,22 @@ public class Handler extends DefaultHandler2 {
 
     private final List<Card> cards = new ArrayList<>();
     private Card currentCard;
+    private boolean readName = false;
+    private String nameStyle;
     private boolean readTags = false;
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) {
-        if (qName.equals("club")) {
-            startClub((Attributes2) attrs);
-        } else if (qName.equals("tag")) {
-            startTag();
+        switch (qName) {
+            case "club":
+                startClub((Attributes2) attrs);
+                break;
+            case "tag":
+                startTag();
+                break;
+            case "name":
+                startName((Attributes2) attrs);
+                break;
         }
     }
 
@@ -81,17 +87,18 @@ public class Handler extends DefaultHandler2 {
         String name = attrs.getValue("name");
         String twitterPath = attrs.getValue("twitter");
         String instagramPath = attrs.getValue("instagram");
-        if (name == null) {
-            System.err.println("name is absent.");
-            System.exit(2);
-        }
         Twitter twitter = Twitter.getInstance(twitterPath);
         Instagram instagram = Instagram.getInstance(instagramPath);
-        currentCard = new Card(name, twitter, instagram);
+        currentCard = new Card(Name.getInstance(name), twitter, instagram);
     }
 
     private void startTag() {
         readTags = true;
+    }
+
+    private void startName(Attributes2 attrs) {
+         nameStyle = attrs.getValue("style");
+         readName = true;
     }
 
     @Override
@@ -99,14 +106,28 @@ public class Handler extends DefaultHandler2 {
         if (readTags) {
             currentCard.getTags().add(String.valueOf(ch, start, length));
         }
+        if (readName) {
+            currentCard = currentCard.withName(Name.getInstance(String.valueOf(ch, start, length), nameStyle));
+        }
     }
 
     @Override
     public void endElement(String uri, String localName, String qName) {
-        if (qName.equals("club")) {
-            cards.add(currentCard);
-        } else if (qName.equals("tag")) {
-            readTags = false;
+        switch (qName) {
+            case "club":
+                if (currentCard.getName() == null) {
+                    System.err.println("名前が指定されていません");
+                    System.exit(1);
+                }
+                cards.add(currentCard);
+                break;
+            case "tag":
+                readTags = false;
+                break;
+            case "name":
+                nameStyle = null;
+                readName = false;
+                break;
         }
     }
 }
