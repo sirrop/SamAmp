@@ -42,7 +42,7 @@ public class Handler extends DefaultHandler2 {
             }
             out.println(indent(2, "<div class=\"club-card\">"));
             out.println(indent(3, "<div class=\"club-header\">"));
-            out.println(indent(4, "<img class=\"icon\" alt=\"icon\" src=\"background.svg\" width=\"16px\" height=\"16px\" />"));
+            out.println(indent(4, "<img class=\"icon\" alt=\"icon\" src=\"https://uoeh-amplifier.com/wp-content/uploads/2021/12/export202112210840407880.png\" width=\"16px\" height=\"16px\" />"));
             out.println(indent(4, "<span class=\"club-name\"" + Styles.getStyle(card.getName(), 1) + ">" + card.getName() + "</span>"));
             out.println(indent(3, "</div>"));
             out.println(indent(3, "<div class=\"club-card-footer\">"));

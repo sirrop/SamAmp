@@ -31,6 +31,8 @@
   border-style: solid;
   border-width: 1px;
   margin: 4px;
+  height: 16px;
+  width: 16px;
 }
 
 .club-card-container {
@@ -94,6 +96,10 @@
   padding: 3px;
   color: gray;
   border-color: gray;
+}
+
+.sns-icon:hover {
+  color: gray;
 }
 
 .twitter[href] {
