@@ -2,12 +2,80 @@
 <link rel="stylesheet" href="test_style.css">
 <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
 
+<script>
+function onFilterOptionChanged(input) {
+  validateOption(input);
+
+}
+
+/**
+ * フィルタリングオプションが変更されたとき、重複してチェックされている要素のチェックを外します。
+ */
+function validateOption(input) {
+  if (!input.checked) return;
+  const prefix = "filter-option-form";
+  if (input.form.id == prefix + "-and") {
+    const or = document.getElementById("foo-" + input.name);
+    const not = document.getElementById("fon-" + input.name);
+    or.checked = false;
+    not.checked = false;
+  }
+  if (input.form.id == prefix + "-or") {
+    const and = document.getElementById("foa-" + input.name);
+    const not = document.getElementById("fon-" + input.name);
+    and.checked = false;
+    not.checked = false;
+  }
+  if (input.form.id == prefix + "-not") {
+    const and = document.getElementById("foa-" + input.name);
+    const or = document.getElementById("foo-" + input.name);
+    and.checked = false;
+    or.checked = false;
+  }
+}
+</script>
+
+
 <div class="club-list-header">
   <form class="search-container">
     <input type="text" class="search-area" contenteditable="true"></input>
     <input type="submit" class="fas search-button" value="&#xf002;"></input>
   </form>
 </div>
+
+
+<div class="filter-option-container">
+  <span>フィルタリングオプション</span>
+  <div class="filter-option">
+    <span>すべて一致</span><br>
+    <form id="filter-option-form-and">
+      <input id="foa-athletic" type="checkbox" name="athletic" onchange="onFilterOptionChanged(this)" />
+      <label for="foa-athletic">運動部</label>
+      <input id="foa-culture" type="checkbox" name="culture" onchange="onFilterOptionChanged(this)" />
+      <label for="foa-culture">文化部</label>
+    </form>
+  </div>
+  <div class="filter-option">
+    <span>これらを含む</span><br>
+    <form id="filter-option-form-or">
+      <input id="foo-athletic" type="checkbox" name="athletic" onchange="onFilterOptionChanged(this)" checked />
+      <label for="foo-athletic">運動部</label>
+      <input id="foo-culture" type="checkbox" name="culture" onchange="onFilterOptionChanged(this)" checked />
+      <label for="foo-culture">文化部</label>
+    </form>
+  </div>
+  <div class="filter-option">
+    <span>除外</span><br>
+    <form id="filter-option-form-not">
+      <input id="fon-athletic" type="checkbox" name="athletic" onchange="onFilterOptionChanged(this)" />
+      <label for="fon-athletic">運動部</label>
+      <input id="fon-culture" type="checkbox" name="culture" onchange="onFilterOptionChanged(this)" />
+      <label for="fon-culture">文化部</label>
+    </form>
+  </div>
+</div>
+
+<span>クラスタリングオプション</span>
 
 <div id="club-list-wrapper">
     <div class="club-card-container">

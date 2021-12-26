@@ -94,12 +94,23 @@
   border-radius: 8px;
   text-align: center;
   padding: 3px;
-  color: gray;
   border-color: gray;
 }
 
-.sns-icon:hover {
+.sns-icon.instagram {
   color: gray;
+}
+
+.sns-icon.twitter {
+  color: #c0c0c0;
+}
+
+.sns-icon.instagram:hover {
+  color: gray;
+}
+
+.sns-icon.twitter:hover {
+  color: #c0c0c0;
 }
 
 .twitter[href] {
