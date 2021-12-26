@@ -1,6 +1,6 @@
 #club-list-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(274px, 1fr));
 }
 
 .club-list-header {
@@ -52,7 +52,7 @@
 
 .club-name {
   display: inline-block;
-  width: 250px;
+  width: 165px;
   margin-right: 5px;
   color: #333;
 }

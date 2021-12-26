@@ -9,7 +9,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 public class Handler extends DefaultHandler2 {
@@ -21,14 +20,24 @@ public class Handler extends DefaultHandler2 {
         out.println("<link rel=\"stylesheet\" href=\"style.css\">");
         out.println("<link rel =\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css\">");
         out.println();
+
+        out.println("<div class=\"club-list-header\">");
+        out.println(indent(1, "<form class=\"search-container\">"));
+        out.println(indent(2, "<input type=\"text\" class=\"search-area\" contenteditable=\"true\"></input>"));
+        out.println(indent(2, "<input type=\"submit\" class=\"fas search-button\" value=\"&#xf002;\"></input>\n"));
+        out.println(indent(1, "</form>"));
+        out.println("</div>");
+
+        out.println();
+
         out.println("<div id=\"club-list-wrapper\">");
 
         for (Card card: cards) {
             out.println(indent(1, "<div class=\"club-card-container\">"));
             out.println(indent(2, "<div class=\"club-card\">"));
             out.println(indent(3, "<div class=\"club-header\">"));
+            out.println(indent(4, "<img class=\"icon\" alt=\"icon\" src=\"background.svg\" width=\"16px\" height=\"16px\" />"));
             out.println(indent(4, "<span class=\"club-name\"" + Styles.getStyle(card.getName(), 1) + ">" + card.getName() + "</span>"));
-            out.println(indent(4, "<img src=\"background.svg\" width=\"50px\" height=\"50px\" />"));
             out.println(indent(3, "</div>"));
             out.println(indent(3, "<div class=\"club-card-footer\">"));
             out.println(indent(4, "<div class=\"club-tag-list\">"));
