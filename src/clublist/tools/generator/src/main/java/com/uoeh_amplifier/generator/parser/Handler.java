@@ -24,7 +24,7 @@ public class Handler extends DefaultHandler2 {
         out.println("<div class=\"club-list-header\">");
         out.println(indent(1, "<form class=\"search-container\">"));
         out.println(indent(2, "<input type=\"text\" class=\"search-area\" contenteditable=\"true\"></input>"));
-        out.println(indent(2, "<input type=\"submit\" class=\"fas search-button\" value=\"&#xf002;\"></input>\n"));
+        out.println(indent(2, "<input type=\"submit\" class=\"fas search-button\" value=\"&#xf002;\"></input>"));
         out.println(indent(1, "</form>"));
         out.println("</div>");
 
@@ -33,7 +33,13 @@ public class Handler extends DefaultHandler2 {
         out.println("<div id=\"club-list-wrapper\">");
 
         for (Card card: cards) {
-            out.println(indent(1, "<div class=\"club-card-container\">"));
+            if (card.getTags().contains("文化部")) {
+                out.println(indent(1, "<div class=\"club-card-container culture-club\">"));
+            } else if (card.getTags().contains("運動部")) {
+                out.println(indent(1, "<div class=\"club-card-container athletic-club\">"));
+            } else {
+                out.println(indent(1, "<div class=\"club-card-container\">"));
+            }
             out.println(indent(2, "<div class=\"club-card\">"));
             out.println(indent(3, "<div class=\"club-header\">"));
             out.println(indent(4, "<img class=\"icon\" alt=\"icon\" src=\"background.svg\" width=\"16px\" height=\"16px\" />"));

@@ -36,7 +36,15 @@
 .club-card-container {
   width: max-content;
   height: max-content;
-  margin: 5px;
+  padding: 5px;
+}
+
+.culture-club {
+  background-color: #fff9ff;
+}
+
+.athletic-club {
+  background-color: #f9ffff;
 }
 
 .club-card {
@@ -46,7 +54,6 @@
 
 .club-header {
   display: flex;
-  background-color: white;
   vertical-align: middle;
 }
 
