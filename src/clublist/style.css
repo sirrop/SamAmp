@@ -1,3 +1,8 @@
+:root {
+  --font-size: 24px;
+  --border-radius: calc(var(--font-size) / 2);
+}
+
 #club-list-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -26,19 +31,19 @@
 }
 
 .icon {
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   border-color: gainsboro;
   border-style: solid;
   border-width: 1px;
-  margin: 4px;
-  height: 16px;
-  width: 16px;
+  margin: 4px 12px 4px 4px;
+  height: var(--font-size);
+  width: var(--font-size);
 }
 
 .club-card-container {
   width: max-content;
   height: max-content;
-  padding: 5px;
+  padding: 5px 20px 5px 5px;
 }
 
 .culture-club {
@@ -64,6 +69,8 @@
   width: 250px;
   margin-right: 5px;
   color: #333;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .club-card-footer {
@@ -89,9 +96,9 @@
 }
 
 .sns-icon {
-  font-size: 10px;
+  font-size: var(--font-size);
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   text-align: center;
   padding: 3px;
   border-color: gray;
