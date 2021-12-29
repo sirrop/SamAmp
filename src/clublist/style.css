@@ -1,11 +1,20 @@
-:root {
-  --font-size: 24px;
-  --border-radius: calc(var(--font-size) / 2);
+@media screen and (min-width: 535px) {
+  :root {
+    --font-size: 24px;
+    --border-radius: calc(var(--font-size) / 2);
+  }
+}
+
+@media screen and (max-width: 535px) {
+  :root {
+    --font-size: 4.49vw;
+    --border-radius: calc(var(--font-size) / 2);
+  }
 }
 
 #club-list-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(calc(var(--font-size) * 10 + 133px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(calc(var(--font-size) * 16 + 133px), 1fr));
 }
 
 .club-list-header {
@@ -66,7 +75,8 @@
 
 .club-name {
   display: inline-block;
-  width: calc(var(--font-size) * 10);
+  width: calc(var(--font-size) * 16);
+  font-size: var(--font-size);
   margin-right: 5px;
   color: #333;
   margin-top: auto;
